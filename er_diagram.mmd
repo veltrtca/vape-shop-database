@@ -1,0 +1,73 @@
+erDiagram
+    categories    ||--o{ products     : "zawiera"
+    manufacturers ||--o{ products     : "produkuje"
+    clients       ||--o{ orders       : "składa"
+    orders        ||--|{ order_items  : "zawiera"
+    products      ||--o{ order_items  : "występuje w"
+    products      ||--o| liquids      : "podtyp"
+    products      ||--o| cartridges   : "podtyp"
+    products      ||--o| vapes        : "podtyp"
+    products      ||--o| sticks       : "podtyp"
+    products      ||--o| chargers     : "podtyp"
+
+    categories {
+        INT category_id PK
+        VARCHAR category_name UK
+    }
+    manufacturers {
+        INT manufacturer_id PK
+        VARCHAR manufacturer_name UK
+    }
+    clients {
+        INT client_id PK
+        VARCHAR full_name
+        VARCHAR email UK
+        VARCHAR phone
+        CHAR password_hash
+    }
+    products {
+        INT product_id PK
+        VARCHAR product_name
+        DECIMAL product_price
+        INT category_id FK
+        INT manufacturer_id FK
+        VARCHAR product_status
+    }
+    orders {
+        INT order_id PK
+        INT client_id FK
+        DATE order_date
+        VARCHAR order_status
+        VARCHAR delivery_address
+    }
+    order_items {
+        INT item_id PK
+        INT order_id FK
+        INT product_id FK
+        INT quantity
+        DECIMAL price_at_purchase
+    }
+    liquids {
+        INT product_id PK,FK
+        VARCHAR liquid_taste
+        INT strength_mg
+        DATE expiry_date
+    }
+    cartridges {
+        INT product_id PK,FK
+        DECIMAL resistance_ohm
+        DECIMAL capacity_ml
+    }
+    vapes {
+        INT product_id PK,FK
+        VARCHAR vape_color
+    }
+    sticks {
+        INT product_id PK,FK
+        VARCHAR sticks_taste
+    }
+    chargers {
+        INT product_id PK,FK
+        VARCHAR charger_color
+        VARCHAR usb_type
+    }
