@@ -57,7 +57,7 @@ vape-shop-database/
 
 ## Model danych
 
-![Diagram ER](docs/er_diagram.png)
+![Diagram ER](er_diagram.png)
 
 **11 tabel + 1 widok:**
 
