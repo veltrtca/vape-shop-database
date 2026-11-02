@@ -115,7 +115,7 @@ vape-shop-database/
 Wymagania: **MySQL 8.0+** (`CHECK` działa od wersji 8.0.16).
 
 ```bash
-git clone https://github.com/<twoj-login>/vape-shop-database.git
+git clone https://github.com/veltrtca/vape-shop-database.git
 cd vape-shop-database
 
 mysql -u root -p < sql/01_schema.sql
